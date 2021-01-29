@@ -13,4 +13,13 @@ class Product extends Model
     public function specs() {
         return $this->hasOne('App\Spec');
     }
+
+    protected $fillable = [
+       'name',
+       'description',
+       'slug',
+       'image',
+       'price',
+       'brand'
+    ];
 }

@@ -21,17 +21,17 @@ class SpecsTableSeeder extends Seeder
             $newSpec = new Spec();
 
             $newSpec->product_id = $product->id;
-            $newSpec->category = $faker->text(50);
-            $newSpec->genre = $faker->text(10);
-            $newSpec->handlebar = $faker->text(15);
-            $newSpec->saddle = $faker->text(15);
-            $newSpec->wheels = $faker->text(15);
-            $newSpec->tires = $faker->text(15);
-            $newSpec->fenders = $faker->text(15);
-            $newSpec->light = $faker->text(15);
+            $newSpec->category = $faker->randomElement(['Strada', 'Gravel', 'MTB', 'E-Bike', 'City']);
+            $newSpec->genre = $faker->randomElement(['male', 'female']);
+            $newSpec->handlebar = $faker->randomElement(['FSA', 'Deda', 'private']);
+            $newSpec->saddle = $faker->randomElement(['Selle Italia', 'fizik', 'San Marco']);
+            $newSpec->wheels = $faker->randomElement(['Mavic', 'Vison', 'Fullcrum']);
+            $newSpec->tires = $faker->randomElement(['Pirelli', 'Michelin', 'Continental']);
+            $newSpec->fenders = $faker->boolean();
+            $newSpec->light = $faker->boolean();
             $newSpec->electrical = $faker->boolean();
-            $newSpec->brakes = $faker->text(15);
-            $newSpec->gear = $faker->text(15);
+            $newSpec->brakes = $faker->randomElement(['Shimano', 'Sram', 'Campagnolo']);
+            $newSpec->gear = $faker->randomElement(['Shimano', 'Sram', 'Campagnolo']);
 
             $newSpec->save();
 

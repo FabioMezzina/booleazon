@@ -10,10 +10,10 @@
           <a class="nav-link" href="{{ route('home') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('product.index') }}">Shop</a>
+          <a class="nav-link" href="{{ route('products.index') }}">Shop</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('home') }}">Categories</a>
+            <a class="nav-link" href="{{ route('products.create') }}">Create</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

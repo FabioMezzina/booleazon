@@ -22,8 +22,8 @@ class CreateSpecsTable extends Migration
             $table->string('saddle', 15);
             $table->string('wheels', 15);
             $table->string('tires', 15);
-            $table->string('fenders', 15);
-            $table->string('light', 15);
+            $table->boolean('fenders');
+            $table->boolean('light');
             $table->boolean('electrical');
             $table->string('brakes', 15);
             $table->string('gear', 15);
