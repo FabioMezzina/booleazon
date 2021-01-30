@@ -14,10 +14,10 @@ class ProductsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for($i = 0; $i < 10; $i++) {
+        for($i = 0; $i < 5; $i++) {
             $product = new Product();
 
-            $product->name = $faker->randomElement(['Ultimate', 'Tarmac', 'Spillo', 'Emonda', 'Aeroad']);
+            $product->name = $faker->unique()->randomElement(['Ultimate', 'Tarmac', 'Spillo', 'Emonda', 'Aeroad']);
             $product->description = $faker->randomElement(['Strada', 'Gravel', 'MTB', 'E-Bike', 'City']);
             $product->brand = $faker->randomElement(['Trek', 'Canyon', 'Bianchi', 'Wilier', 'City']);
             $product->price = $faker->randomFloat(2, 0, 999);
