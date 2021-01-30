@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use App\Product;
 use App\Spec;
 
@@ -46,7 +47,7 @@ class ProductController extends Controller
 
         //dd($data);
 
-        $request->validate($this->ruleValidation());
+        $request->validate($this->ruleValidation(false));
 
         $data['slug'] = Str::slug($data['name'], '-');
 
@@ -114,7 +115,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $request->validate($this->ruleValidation());
+        $request->validate($this->ruleValidation(true, $id));
 
         $product = Product::find($id);
 
@@ -169,14 +170,32 @@ class ProductController extends Controller
         }
 
     }
+    // 'required | max:40'
 
-    private function ruleValidation() {
-        return [
-            'name' => 'required | max:40',
-            'description' => 'required',
-            'image' => 'image',
-            'price' => 'required | max:9999 | min:0 | numeric',
-            'brand' => 'required | max:20'
-        ];
+    private function ruleValidation($update, $id=null) {
+        $rules = [];
+        if ($update) {
+            $rules = [
+                'name' => [
+                    'required',
+                    'max:40',
+                    Rule::unique('products')->ignore($id)
+                ],                           
+                'description' => 'required',
+                'image' => 'image',
+                'price' => 'required | max:9999 | min:0 | numeric',
+                'brand' => 'required | max:20'
+            ];
+        } else {
+            $rules = [
+                'name' => 'required | max:40',
+                'description' => 'required',
+                'image' => 'image',
+                'price' => 'required | max:9999 | min:0 | numeric',
+                'brand' => 'required | max:20'
+            ];
+        }
+
+        return $rules;
     }
 }
