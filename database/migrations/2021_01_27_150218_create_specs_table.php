@@ -29,7 +29,7 @@ class CreateSpecsTable extends Migration
             $table->string('gear', 15);
 
             // foreign key
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

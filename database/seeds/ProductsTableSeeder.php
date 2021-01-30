@@ -21,7 +21,7 @@ class ProductsTableSeeder extends Seeder
             $product->description = $faker->randomElement(['Strada', 'Gravel', 'MTB', 'E-Bike', 'City']);
             $product->brand = $faker->randomElement(['Trek', 'Canyon', 'Bianchi', 'Wilier', 'City']);
             $product->price = $faker->randomFloat(2, 0, 999);
-            $product->image = $faker->imageUrl(640, 480, $faker->numberBetween($min = 10, $max = 200));
+            //$product->image = $faker->imageUrl(640, 480, $faker->numberBetween($min = 10, $max = 200));
             $product->slug = Str::slug($product->name, '-');
             
             $product->save();

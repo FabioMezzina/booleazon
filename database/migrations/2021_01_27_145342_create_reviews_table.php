@@ -22,7 +22,7 @@ class CreateReviewsTable extends Migration
             $table->timestamps();
 
             // foreign key
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
