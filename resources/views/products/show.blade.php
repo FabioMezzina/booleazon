@@ -14,7 +14,7 @@
          @method('DELETE')
          <input class="btn btn-danger" type="submit" value="Delete">
      </form>
-     @dump($product)
+     <!-- @dump($product) -->
      @if (!empty($product->image)) 
         <img width="200" src="{{ asset('storage/'. $product->image) }}" alt="">
      @else 
