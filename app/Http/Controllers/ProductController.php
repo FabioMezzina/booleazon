@@ -87,7 +87,6 @@ class ProductController extends Controller
         $product = Product::where('slug', $slug)->first();
         $reviews = $product->reviews()->orderBy('updated_at', 'desc')->get();
         return view('products.show', compact('product', 'reviews'));
-
     }
 
     /**
