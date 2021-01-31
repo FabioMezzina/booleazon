@@ -23,6 +23,7 @@
              </li>
          @endforeach
      </ul>
+     {{ $products->links() }}
  </section>
 
 @endsection

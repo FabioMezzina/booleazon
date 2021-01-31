@@ -3,6 +3,12 @@
 @section ('content')
 
  <section>
+    @if (session('author'))
+        <div class="alert alert-success">
+          <p>Il commento di {{ session('author') }} è stato eliminato</p>
+        </div>
+    @endif
+
      <h2>{{ $product->name }}</h2>
      <small>{{ $product->price }}</small>
      <span class="brand">
@@ -55,6 +61,27 @@
           </tr>
         </tbody>
       </table>
+
+      {{-- Reviews --}}
+      <div>
+        <a href="{{ route('reviews.create') }}">Aggiungi recensione</a>
+      </div>
+      <ul>
+        @foreach ($reviews as $review)
+        <li>
+          <h3>{{ $review->author }}</h3>
+          <p>{{ $review->rating }} <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-primary">Edit review</a> </p>
+          <form action="{{ route('reviews.destroy', $review->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger" type="submit" value="Delete">
+          </form>
+
+          <p>{{ $review->body }}</p>
+          <p>{{ $review->updated_at->diffForHumans() }}</p>
+        </li>
+        @endforeach
+      </ul>
  </section>
 
 @endsection

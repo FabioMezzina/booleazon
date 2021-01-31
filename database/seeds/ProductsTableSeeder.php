@@ -14,10 +14,10 @@ class ProductsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for($i = 0; $i < 5; $i++) {
+        for($i = 0; $i < 30; $i++) {
             $product = new Product();
 
-            $product->name = $faker->unique()->randomElement(['Ultimate', 'Tarmac', 'Spillo', 'Emonda', 'Aeroad']);
+            $product->name = $faker->unique()->randomElement(['Aeroad', 'Endurace', 'Inflite', 'Speedmax', 'Ultimate', 'Dude', 'Endurace', 'Exceed', 'Grail', 'Grand Canyon', 'Lux', 'Neuron', 'Sender', 'Spectral', 'Stitched', 'Stoic', 'Strive', 'Torque', 'Commuter:ON', 'Endurace:ON', 'Grail:ON', 'Grand Canyon:ON', 'Neuron:ON', 'Pathlite:ON', 'Precede:ON', 'Roadlite:ON', 'Spectral:ON', 'Commuter', 'Pathlite', 'Roadlite', 'Allant+', 'Boone', 'Checkpoint', 'Crockett', 'District', 'Domane', 'Dual Sport', 'Emonda', 'Farley', 'Fuel EX', 'Full Stache', 'FX', 'L Series', 'Loft', 'Loft Go!', 'Madone', 'Marlin', 'Powerfly', 'Powerfly Equipped', 'Precaliber', 'Procaliber', 'Rail', 'Remedy', 'Roscoe']);
             $product->description = $faker->randomElement(['Strada', 'Gravel', 'MTB', 'E-Bike', 'City']);
             $product->brand = $faker->randomElement(['Trek', 'Canyon', 'Bianchi', 'Wilier', 'City']);
             $product->price = $faker->randomFloat(2, 0, 999);

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use App\Product;
 use App\Spec;
+use App\Review;
 
 class ProductController extends Controller
 {
@@ -18,9 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-
-        // dd($products);
+        $products = Product::simplePaginate(10);
 
         return view('products.index', compact('products'));
     }
@@ -86,8 +85,8 @@ class ProductController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->first();
-
-        return view('products.show', compact('product'));
+        $reviews = $product->reviews()->orderBy('updated_at', 'desc')->get();
+        return view('products.show', compact('product', 'reviews'));
 
     }
 
@@ -184,7 +183,19 @@ class ProductController extends Controller
                 'description' => 'required',
                 'image' => 'image',
                 'price' => 'required | max:9999 | min:0 | numeric',
-                'brand' => 'required | max:20'
+                'brand' => 'required | max:20',
+                'category' => 'required | max:50',
+                'genre' => 'required | max:10',
+                'handlebar' => 'required | max:15',
+                'saddle' => 'required | max:15',
+                'wheels' => 'required | max:15',
+                'tires' => 'required | max:15',
+                'fenders' => 'required',
+                'light' => 'required',
+                'electrical' => 'required',
+                'brakes' => 'required | max:15',
+                'gear' => 'required | max:15',
+                
             ];
         } else {
             $rules = [
@@ -192,7 +203,19 @@ class ProductController extends Controller
                 'description' => 'required',
                 'image' => 'image',
                 'price' => 'required | max:9999 | min:0 | numeric',
-                'brand' => 'required | max:20'
+                'brand' => 'required | max:20',
+                'category' => 'required | max:50',
+                'genre' => 'required | max:10',
+                'handlebar' => 'required | max:15',
+                'saddle' => 'required | max:15',
+                'wheels' => 'required | max:15',
+                'tires' => 'required | max:15',
+                'fenders' => 'required',
+                'light' => 'required',
+                'electrical' => 'required',
+                'brakes' => 'required | max:15',
+                'gear' => 'required | max:15',
+                
             ];
         }
 
