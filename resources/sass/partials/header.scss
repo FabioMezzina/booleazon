@@ -1,0 +1,39 @@
+.logo {
+    text-align: center;
+    background-color: #14213d;
+    .bike {
+        font-family: 'Abel', sans-serif;
+        color: #e63946;
+        font-size: 90px;
+        display: inline;
+    }
+    .azon {
+        display: inline;
+        color:#f1faee ;
+        font-family: 'Abel', sans-serif;
+        font-size: 50px;
+    }
+}
+
+.navbar {
+    padding: 0;
+    
+}
+
+.nav-item {
+    padding: 10px;
+}
+
+.navbar-light .navbar-nav .active {
+    background-color: #e63946;
+    .nav-link {
+        color:#f1faee;
+    }
+    
+}
+
+.carousel-item {
+     .carousel-caption {
+        color: #000;
+    }
+}

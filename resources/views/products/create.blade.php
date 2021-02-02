@@ -1,8 +1,8 @@
 @extends ('layouts.main')
 
 @section ('content')
-   
-  @if ($errors->any())
+   <div class="container">
+   @if ($errors->any())
       <div class="alert alert-danger">
           <ul>
               @foreach ($errors->all() as $error)
@@ -127,4 +127,7 @@
     <input type="submit" class="btn btn-primary" value="submit">
   </form>
 
-@endsection
+
+   </div>
+   @endsection 
+ 

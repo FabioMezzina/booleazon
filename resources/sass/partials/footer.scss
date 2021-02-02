@@ -1,0 +1,33 @@
+footer {
+    background-color: #14213d;
+    height: 100px;
+    color: #f1faee;
+    
+   
+}
+
+.cuore {
+    color: red;
+    font-size: 2rem;
+    vertical-align: middle;
+    animation: beatHeart 2s infinite; 
+}
+
+@keyframes beatHeart {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.5);
+    }
+    40% {
+      transform: scale(1);
+    }
+    60% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+}    
+

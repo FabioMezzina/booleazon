@@ -10004,3 +10004,88 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.logo {
+  text-align: center;
+  background-color: #14213d;
+}
+.logo .bike {
+  font-family: "Abel", sans-serif;
+  color: #e63946;
+  font-size: 90px;
+  display: inline;
+}
+.logo .azon {
+  display: inline;
+  color: #f1faee;
+  font-family: "Abel", sans-serif;
+  font-size: 50px;
+}
+
+.navbar {
+  padding: 0;
+}
+
+.nav-item {
+  padding: 10px;
+}
+
+.navbar-light .navbar-nav .active {
+  background-color: #e63946;
+}
+.navbar-light .navbar-nav .active .nav-link {
+  color: #f1faee;
+}
+
+.carousel-item .carousel-caption {
+  color: #000;
+}
+
+footer {
+  background-color: #14213d;
+  height: 100px;
+  color: #f1faee;
+}
+
+.cuore {
+  color: red;
+  font-size: 2rem;
+  vertical-align: middle;
+  -webkit-animation: beatHeart 2s infinite;
+          animation: beatHeart 2s infinite;
+}
+
+@-webkit-keyframes beatHeart {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.5);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes beatHeart {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.5);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

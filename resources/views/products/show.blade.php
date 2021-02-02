@@ -1,7 +1,9 @@
 @extends ('layouts.main')
 
 @section ('content')
+  <div class="container">
 
+  
  <section>
     @if (session('author'))
         <div class="alert alert-success">
@@ -10,22 +12,22 @@
     @endif
 
      <h2>{{ $product->name }}</h2>
-     <small>{{ $product->price }}</small>
      <span class="brand">
-        {{ $product->brand }}
-     </span>
-     <a class="btn btn-primary" href="{{ route('products.edit', $product->slug) }}">Edit</a>
-     <form action="{{ route('products.destroy', $product->id) }}" method="POST">
-         @csrf
-         @method('DELETE')
-         <input class="btn btn-danger" type="submit" value="Delete">
-     </form>
-     <!-- @dump($product) -->
-     @if (!empty($product->image)) 
-        <img width="200" src="{{ asset('storage/'. $product->image) }}" alt="">
-     @else 
-        <img width="200" src="{{ asset('img/no_img_available.svg') }}" alt="">
-     @endif
+       {{ $product->brand }}
+      </span>
+      <a class="btn btn-primary" href="{{ route('products.edit', $product->slug) }}">Edit</a>
+      <form class='d-inline' action="{{ route('products.destroy', $product->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input class="btn btn-danger" type="submit" value="Elimina">
+      </form>
+      <!-- @dump($product) -->
+      @if (!empty($product->image)) 
+      <img class='d-block' width="200" src="{{ asset('storage/'. $product->image) }}" alt="">
+      @else 
+      <img class='d-block' width="200" src="{{ asset('img/no_img_available.svg') }}" alt="">
+      @endif
+      <small class='d-block'>€ {{ $product->price }}</small>
      <p class="description">
         {{ $product->description }}
      </p>
@@ -68,19 +70,22 @@
       <ul>
         @foreach ($reviews as $review)
         <li>
-          <h3>{{ $review->author }}</h3>
-          <p>{{ $review->rating }} <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-primary">Edit review</a> </p>
-          <form action="{{ route('reviews.destroy', $review->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <input class="btn btn-danger" type="submit" value="Delete">
-          </form>
-
-          <p>{{ $review->body }}</p>
-          <p>{{ $review->updated_at->diffForHumans() }}</p>
+          <blockquote class="blockquote">
+            <p>{{ $review->body }}</p>
+            <div class="blockquote-footer">scritta da {{ $review->author }}- <cite title="data">{{ $review->updated_at->diffForHumans() }}</cite></div>
+            <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-primary">Edit review</a>
+            <form action="{{ route('reviews.destroy', $review->id) }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <input class="btn btn-danger" type="submit" value="Delete">
+            </form>
+          </blockquote>
         </li>
         @endforeach
       </ul>
+
+
+
 
 
       <h2>Inserisci nuovo commento</h2>
@@ -110,9 +115,9 @@
           <textarea class="form-control" id="body" name="body">{{ old('body') }}</textarea>
         </div>
         <input hidden type="number" name="product_id" value="{{ $product->id }}">
-        <input type="submit" class="btn btn-primary" value="Edit">
+        <input type="submit" class="btn btn-primary" value="Modifica">
       </form>
 
  </section>
-
+ </div>
 @endsection

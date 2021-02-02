@@ -37323,6 +37323,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_js_bootstrap_bundle__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_js_bootstrap_bundle__WEBPACK_IMPORTED_MODULE_0__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$('.carousel').carousel({
+  interval: 3000
+});
 
 
 /***/ }),
@@ -37377,8 +37380,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\c4lci\Desktop\Boolean\CORSO\Gennaio\27_01\booleazon\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\c4lci\Desktop\Boolean\CORSO\Gennaio\27_01\booleazon\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Utente\Desktop\repo\booleazon\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\repo\booleazon\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
